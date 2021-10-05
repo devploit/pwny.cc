@@ -27,7 +27,7 @@
 ## SHELLS
 
 * [Misc](shells/misc.md)
-* [Webshells](shells/webshells.md)
+* [Web Shells](shells/webshells.md)
 * [Reverse Shells](shells/reverse-shells.md)
 * [Obfuscated Shells](shells/obfuscated-shells.md)
 
