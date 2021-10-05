@@ -49,7 +49,7 @@
 
 ## OTHER
 
-* [Sandbox](other/sandbox.md)
+* [Sandbox Escape](other/sandbox.md)
 * [Cracking](other/cracking/README.md)
   * [Hashcat](other/cracking/hashcat.md)
   * [John the Ripper](other/cracking/john-the-ripper.md)
