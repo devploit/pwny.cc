@@ -1,4 +1,4 @@
-# Webshells
+# Web Shells
 
 ### Simple bash script to handle basic webshell
 
