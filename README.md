@@ -2,11 +2,11 @@
 
 **-** **WEB IN CONTINUOUS UPDATE -**
 
-I want to warn that I am not the owner of the information on this website, **most of the tricks collected are from other websites and the content belongs to them.** At the end of this page you have a compilation of resources where I have got information / tips for this wiki.
+I want to warn that I am not the owner of the information on this website, **most of the tricks and payloads collected are from other websites and the content belongs to them.** At the end of this page you have a compilation of resources where I have got information / tips for this repository.
 
 If you want to contact me you can do it both on [Twitter](https://twitter.com/devploit) and [Telegram](https://t.me/devploit).
 
-The people who have contributed to the creation / maintenance of this wiki are listed below.
+If you want to contributo to this repository, you can do it by contacting me or making a PR to [Github](https://github.com/devploit/pwny.cc). The people who have contributed to the creation / maintenance of this wiki are listed below.
 
 ### Contributors
 
