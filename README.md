@@ -22,9 +22,13 @@ Thanks to all contributors and thanks to the owners of the websites where I have
 
 {% embed url="https://pentestbook.six2dez.com/" %}
 
+{% embed url="https://jorgectf.gitbook.io/awae-oswe-preparation-resources/" %}
+
 {% embed url="http://pentestmonkey.net/" %}
 
 {% embed url="https://morph3sec.com/" %}
 
 {% embed url="https://github.com/s0md3v/AwesomeXSS" %}
+
+
 
