@@ -5,6 +5,7 @@
 ## WEB ATTACKS
 
 * [Misc](web-attacks/misc.md)
+* [OAuth](web-attacks/oauth.md)
 * [Open Redirect](web-attacks/open-redirect/README.md)
   * [Open Redirect to XSS](web-attacks/open-redirect/open-redirect-to-xss.md)
 * [Command Injection](web-attacks/command-injection.md)
