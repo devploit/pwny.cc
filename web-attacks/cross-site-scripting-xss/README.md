@@ -1,8 +1,8 @@
-# Cross-Site Scripting \(XSS\)
-
-### All Payloads
+# Cross-Site Scripting (XSS)
 
 {% embed url="https://github.com/vkbiu/KNR-XSS-Payloads" %}
+XSS Payloads Repository
+{% endembed %}
 
 ### XSS inside SVG File
 
@@ -54,7 +54,7 @@ javascript:([,ウ,,,,ア]=[]+{},[ネ,ホ,ヌ,セ,,ミ,ハ,ヘ,,,ナ]=[!!ウ]+!�
 
 ### Event handlers
 
-```text
+```
 "onabort",
 "onactivate",
 "onafterprint",
@@ -257,4 +257,3 @@ javascript:([,ウ,,,,ア]=[]+{},[ネ,ホ,ヌ,セ,,ミ,ハ,ヘ,,,ナ]=[!!ウ]+!�
 "onwebkittransitionend",
 "onwheel"
 ```
-
