@@ -1,8 +1,8 @@
-# Server Side Request Forgery \(SSRF\)
+# Server Side Request Forgery (SSRF)
 
 ## Localhost Bypasses
 
-### Using \[::\]
+### Using \[::]
 
 ```csharp
 http://[::]:80/ #HTTP
@@ -118,7 +118,11 @@ http://127.1.1.1:80#\@127.2.2.2:80/
 
 ## References
 
-{% embed url="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Request%20Forgery\#bypass-localhost-with-cidr" %}
+{% embed url="https://github.com/tarunkant/Gopherus" %}
+Gopherus - Tool to generate gopher link for exploiting SSRF and gaining RCE in various servers
+{% endembed %}
 
-
+{% embed url="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Request%20Forgery#bypass-localhost-with-cidr" %}
+SSRF Payloads Repository
+{% endembed %}
 
