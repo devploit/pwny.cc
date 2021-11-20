@@ -122,6 +122,10 @@ http://127.1.1.1:80#\@127.2.2.2:80/
 Gopherus - Tool to generate gopher link for exploiting SSRF and gaining RCE in various servers
 {% endembed %}
 
+{% embed url="https://github.com/knassar702/lorsrf" %}
+lorsrf - SSRF parameter bruteforce (use scant3r module instead)
+{% endembed %}
+
 {% embed url="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Request%20Forgery#bypass-localhost-with-cidr" %}
 SSRF Payloads Repository
 {% endembed %}

