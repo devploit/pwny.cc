@@ -11,7 +11,7 @@ SQLMap - Automatic SQL injection and database takeover tool
 -r: Request file
 -p: Parameter to 
 -v: Verbosity level (0-6, default 1
-proxy: Use a proxy to connect to target URL
+--proxy: Use a proxy to connect to target URL
 --tor: Use Tor anonymity network
 --random-agent: Use a random user agent
 --level: Level of tests to perform (1-5, default 1)
