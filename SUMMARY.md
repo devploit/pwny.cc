@@ -13,6 +13,7 @@
   * [Bypass Techniques](web-attacks/local-file-inclusion-lfi/bypass-techniques.md)
   * [LFI to RCE](web-attacks/local-file-inclusion-lfi/lfi-to-rce.md)
 * [Insecure File Upload](web-attacks/insecure-file-upload.md)
+* [Insecure Direct Object Reference (IDOR)](web-attacks/insecure-direct-object-reference-idor.md)
 * [SQL Injection (SQLi)](web-attacks/sql-injection-sqli/README.md)
   * [SQLMap](web-attacks/sql-injection-sqli/sqlmap.md)
   * [MySQL](web-attacks/sql-injection-sqli/mysql.md)
