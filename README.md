@@ -1,8 +1,14 @@
 # Home
 
-**-** **WEB IN CONTINUOUS UPDATE -**
+![](.gitbook/assets/test2.png)
 
-I want to warn that I am not the owner of the information on this website, **most of the tricks and payloads collected are from other websites and the content belongs to them. **At the end of this page you have a compilation of resources where I have got information / tips for this repository.
+**Repository of useful payloads and tips for pentesting/bug bounty.**
+
+{% hint style="info" %}
+<mark style="color:red;">**WEB IN CONTINUOUS UPDATE**</mark>
+{% endhint %}
+
+I want to warn that I am not the owner of the information on this website, **most of the tricks and payloads collected are from other websites and the content belongs to them.** At the end of this page you have a compilation of resources where I have got information / tips for this repository.
 
 If you want to contact me you can do it both on [Twitter](https://twitter.com/devploit) and [Telegram](https://t.me/devploit).
 
