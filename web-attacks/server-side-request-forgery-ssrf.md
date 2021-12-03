@@ -66,6 +66,10 @@ http://q177.0.0.1/ = http://127.0.0.1
 
 ```csharp
 http://[0:0:0:0:0:ffff:127.0.0.1]
+
+#Cloud Metadata
+http://[::ffff:169.254.169.254]
+http://[0:0:0:0:0:ffff:169.254.169.254]
 ```
 
 ### Using malformed urls
