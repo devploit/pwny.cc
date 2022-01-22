@@ -7,9 +7,9 @@
 ```cshtml
 @(1+2)
 
-// Command execution
+//Command execution
 @{
-    // Code in C#
+    //Code in C#
 }
 ```
 
