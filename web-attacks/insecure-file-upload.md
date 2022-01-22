@@ -4,19 +4,25 @@
 
 ```bash
 #PHP
-.php, .php3, .php4, .php5, .php7, .pht, .phps, .phar, .phpt, .pgif, .phtml, .phtm, .inc
+.php, , .php2,.php3, .php4, .php5, .php7, .pht, .shtml, .phps, .phar, .phpt, .pgif, .phtml, .phtm, .inc
 
 #ASP
-.asp, .aspx, .cer, .asa
+.asp, .aspx, .cer, .asa, .ashx, .asmx, .axd, .cshtm, .cshtml, .rem, .soap
 
 #JSP
-.jsp, .jspx, .jsw, .jspf
+.jsp, .jspx, .jsw, .jspf, .jsv, .wss, .do, .action
 
 #Perl
 .pl, .pm, .cgi, .lib
 
 #Coldfusion
 .cfm, .cfml, .cfc, .dbm
+
+#Flash
+.swf
+
+#Erland Yaws Web Server
+.yaws
 ```
 
 ## Bypasses
