@@ -2,26 +2,82 @@
 
 ## Defaults extensions
 
+#### PHP
+
 ```bash
-#PHP
-.php, , .php2,.php3, .php4, .php5, .php7, .pht, .shtml, .phps, .phar, .phpt, .pgif, .phtml, .phtm, .inc
+.php
+.php2
+.php3
+.php4
+.php5
+.php7
+.pht
+.shtml
+.phps
+.phar
+.phpt
+.pgif
+.phtml
+.phtm
+.inc
+```
 
-#ASP
-.asp, .aspx, .cer, .asa, .ashx, .asmx, .axd, .cshtm, .cshtml, .rem, .soap
+#### ASP
 
-#JSP
-.jsp, .jspx, .jsw, .jspf, .jsv, .wss, .do, .action
+```
+.asp
+.aspx
+.cer
+.asa
+.ashx
+.asmx
+.axd
+.cshtm
+.cshtml
+.rem
+.soap
+```
 
-#Perl
-.pl, .pm, .cgi, .lib
+#### JSP
 
-#Coldfusion
-.cfm, .cfml, .cfc, .dbm
+```
+.jsp
+.jspx
+.jsw
+.jspf
+.jsv
+.wss
+.do
+.action
+```
 
-#Flash
+#### Perl
+
+```
+.pl
+.pm
+.cgi
+.lib
+```
+
+#### Coldfusion
+
+```
+.cfm
+.cfml
+.cfc
+.dbm
+```
+
+#### Flash
+
+```
 .swf
+```
 
-#Erland Yaws Web Server
+#### Erland Yaws Web Server
+
+```
 .yaws
 ```
 
