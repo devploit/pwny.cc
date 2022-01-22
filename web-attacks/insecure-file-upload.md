@@ -20,6 +20,7 @@
 .phtml
 .phtm
 .inc
+.htaccess
 ```
 
 #### ASP
