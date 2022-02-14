@@ -269,3 +269,7 @@ Platform to hunt XSS vulnerabilities
 {% embed url="https://github.com/vkbiu/KNR-XSS-Payloads" %}
 XSS Payloads Repository
 {% endembed %}
+
+{% embed url="https://github.com/terjanq/Tiny-XSS-Payloads" %}
+Tiny XSS Payloads
+{% endembed %}
