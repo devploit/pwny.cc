@@ -12,7 +12,7 @@ I want to warn that I am not the owner of the information on this website, **mos
 
 If you want to contact me you can do it both on [Twitter](https://twitter.com/devploit) and [Telegram](https://t.me/devploit).
 
-If you want to contribute to this repository, you can do it by contacting me or making a PR to [Github](https://github.com/devploit/pwny.cc). The people who have contributed to the creation / maintenance of this wiki are listed below.
+If you want to contribute to this repository, you can do it by contacting me or making a PR to [GitHub](https://github.com/devploit/pwny.cc). The people who have contributed to the creation / maintenance of this wiki are listed below.
 
 ### Contributors
 
