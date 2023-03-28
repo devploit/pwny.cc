@@ -482,5 +482,9 @@ body {color: `global.process.mainModule.require("child_process").execSync("id")`
 ## References
 
 {% embed url="https://github.com/epinna/tplmap" %}
-tplmap - Server-Side Template Injection and Code Injection Detection and Exploitation Tool
+tplmap - Server-Side Template Injection and Code Injection Detection and Exploitation Toolç
+{% endembed %}
+
+{% embed url="https://0day.work/jinja2-template-injection-filter-bypasses/" %}
+Jinja2 template injection filter bypasses
 {% endembed %}
