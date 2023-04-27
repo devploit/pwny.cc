@@ -1,6 +1,6 @@
 # Hashcat
 
-### Tool <a href="tool" id="tool"></a>
+### Tool <a href="#tool" id="tool"></a>
 
 {% embed url="https://github.com/hashcat/hashcat" %}
 Hashcat - World's fastest and most advanced password recovery utility
@@ -10,7 +10,7 @@ Hashcat - World's fastest and most advanced password recovery utility
 Generic hash types
 {% endembed %}
 
-### Parameters <a href="parameters" id="parameters"></a>
+### Parameters <a href="#parameters" id="parameters"></a>
 
 ```
 -m: Mode (hash type)
@@ -22,10 +22,16 @@ Generic hash types
     4 = Permutation
     5 = Table-Lookup
     8 = Prince
+-w: Workload profile
+    1 = Low
+    2 = Medium
+    3 = High
+    4 = Nightmare
+-O: Enable optimized kernels (limits password length)
 -o: Output (if you want it to be saved in a txt)
 ```
 
-### Attack examples <a href="attack-examples" id="attack-examples"></a>
+### Attack examples <a href="#attack-examples" id="attack-examples"></a>
 
 ```bash
 #Dictionary attack
@@ -35,7 +41,7 @@ hashcat -m 1800 -a 0 shadow.txt /usr/share/wordlists/rockyou.txt​
 hashcat -m 1800 -a 3 shadow.txt
 ```
 
-### Complete guide about hashcat use (in spanish) <a href="complete-guide-about-hashcat-use-in-spanish" id="complete-guide-about-hashcat-use-in-spanish"></a>
+### Complete guide about hashcat use (in spanish) <a href="#complete-guide-about-hashcat-use-in-spanish" id="complete-guide-about-hashcat-use-in-spanish"></a>
 
 {% embed url="https://jesux.es/cracking/passwords-cracking/" %}
 Guia: Introduccion al Password Crackingó
