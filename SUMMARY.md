@@ -51,6 +51,7 @@
   * [Exfiltration](post-exploitation/windows/exfiltration.md)
 * [Android](post-exploitation/android/README.md)
   * [adb](post-exploitation/android/adb.md)
+  * [objection](post-exploitation/android/objection.md)
 
 ## OTHER
 
