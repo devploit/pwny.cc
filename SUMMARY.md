@@ -34,7 +34,7 @@
 * [Reverse Shells](shells/reverse-shells.md)
 * [Obfuscated Shells](shells/obfuscated-shells.md)
 
-## SO <a href="post-exploitation" id="post-exploitation"></a>
+## SO <a href="#post-exploitation" id="post-exploitation"></a>
 
 * [Linux](post-exploitation/linux/README.md)
   * [Internal Recon](post-exploitation/linux/internal-recon.md)
@@ -49,6 +49,8 @@
   * [Bypasses](post-exploitation/windows/bypasses.md)
   * [Network](post-exploitation/windows/network.md)
   * [Exfiltration](post-exploitation/windows/exfiltration.md)
+* [Android](post-exploitation/android/README.md)
+  * [adb](post-exploitation/android/adb.md)
 
 ## OTHER
 
