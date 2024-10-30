@@ -52,7 +52,12 @@
 * [Android](post-exploitation/android/README.md)
   * [adb](post-exploitation/android/adb.md)
   * [apktool](post-exploitation/android/apktool.md)
+  * [burp suite](post-exploitation/android/burp-suite.md)
+  * [dns spoofing](post-exploitation/android/dns-spoofing.md)
+  * [jadx](post-exploitation/android/jadx.md)
+  * [jni](post-exploitation/android/jni.md)
   * [objection](post-exploitation/android/objection.md)
+  * [tcpdump](post-exploitation/android/tcpdump.md)
 * [iOS](post-exploitation/ios/README.md)
   * [objection](post-exploitation/ios/objection.md)
 
