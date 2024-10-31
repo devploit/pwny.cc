@@ -24,7 +24,7 @@
   * [dns spoofing](so/android/dns-spoofing.md)
   * [frida](so/android/frida.md)
   * [jadx](so/android/jadx.md)
-  * [jni](so/android/jni.md)
+  * [JNI](so/android/jni.md)
   * [objection](so/android/objection.md)
   * [tcpdump](so/android/tcpdump.md)
   * [webview](so/android/webview.md)
