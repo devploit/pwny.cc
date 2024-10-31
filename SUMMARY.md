@@ -23,6 +23,7 @@
   * [burp suite](so/android/burp-suite.md)
   * [dns spoofing](so/android/dns-spoofing.md)
   * [frida](so/android/frida.md)
+  * [intent](so/android/intent.md)
   * [jadx](so/android/jadx.md)
   * [JNI](so/android/jni.md)
   * [objection](so/android/objection.md)
