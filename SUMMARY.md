@@ -2,6 +2,40 @@
 
 * [Home](README.md)
 
+## SO
+
+* [Linux](so/linux/README.md)
+  * [Internal Recon](so/linux/internal-recon.md)
+  * [Bypasses](so/linux/bypasses.md)
+  * [Network](so/linux/network.md)
+  * [Exfiltration](so/linux/exfiltration.md)
+  * [Containers](so/linux/containers.md)
+  * [Iptables](so/linux/iptables.md)
+* [Windows](so/windows/README.md)
+  * [Internal Recon](so/windows/internal-recon.md)
+  * [External Recon](so/windows/external-recon.md)
+  * [Bypasses](so/windows/bypasses.md)
+  * [Network](so/windows/network.md)
+  * [Exfiltration](so/windows/exfiltration.md)
+* [Android](so/android/README.md)
+  * [adb](so/android/adb.md)
+  * [apktool](so/android/apktool.md)
+  * [burp suite](so/android/burp-suite.md)
+  * [dns spoofing](so/android/dns-spoofing.md)
+  * [jadx](so/android/jadx.md)
+  * [jni](so/android/jni.md)
+  * [objection](so/android/objection.md)
+  * [tcpdump](so/android/tcpdump.md)
+* [iOS](so/ios/README.md)
+  * [objection](so/ios/objection.md)
+
+## SHELLS
+
+* [Misc](shells/misc.md)
+* [Web Shells](shells/webshells.md)
+* [Reverse Shells](shells/reverse-shells.md)
+* [Obfuscated Shells](shells/obfuscated-shells.md)
+
 ## WEB ATTACKS
 
 * [Misc](web-attacks/misc.md)
@@ -26,40 +60,6 @@
 * [Server Side Request Forgery (SSRF)](web-attacks/server-side-request-forgery-ssrf.md)
 * [Server Side Template Injection (SSTI)](web-attacks/server-side-template-injection-ssti.md)
 * [XML External Entity (XXE)](web-attacks/xml-external-entity-xxe.md)
-
-## SHELLS
-
-* [Misc](shells/misc.md)
-* [Web Shells](shells/webshells.md)
-* [Reverse Shells](shells/reverse-shells.md)
-* [Obfuscated Shells](shells/obfuscated-shells.md)
-
-## SO <a href="#post-exploitation" id="post-exploitation"></a>
-
-* [Linux](post-exploitation/linux/README.md)
-  * [Internal Recon](post-exploitation/linux/internal-recon.md)
-  * [Bypasses](post-exploitation/linux/bypasses.md)
-  * [Network](post-exploitation/linux/network.md)
-  * [Exfiltration](post-exploitation/linux/exfiltration.md)
-  * [Containers](post-exploitation/linux/containers.md)
-  * [Iptables](post-exploitation/linux/iptables.md)
-* [Windows](post-exploitation/windows/README.md)
-  * [Internal Recon](post-exploitation/windows/internal-recon.md)
-  * [External Recon](post-exploitation/windows/external-recon.md)
-  * [Bypasses](post-exploitation/windows/bypasses.md)
-  * [Network](post-exploitation/windows/network.md)
-  * [Exfiltration](post-exploitation/windows/exfiltration.md)
-* [Android](post-exploitation/android/README.md)
-  * [adb](post-exploitation/android/adb.md)
-  * [apktool](post-exploitation/android/apktool.md)
-  * [burp suite](post-exploitation/android/burp-suite.md)
-  * [dns spoofing](post-exploitation/android/dns-spoofing.md)
-  * [jadx](post-exploitation/android/jadx.md)
-  * [jni](post-exploitation/android/jni.md)
-  * [objection](post-exploitation/android/objection.md)
-  * [tcpdump](post-exploitation/android/tcpdump.md)
-* [iOS](post-exploitation/ios/README.md)
-  * [objection](post-exploitation/ios/objection.md)
 
 ## OTHER
 
