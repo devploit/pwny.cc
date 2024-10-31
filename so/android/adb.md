@@ -30,7 +30,8 @@ adb –e <command> (directs command to only attached emulator)
 ```bash
 adb install <apk> (install app)  
 adb install <path> (install app from phone path)  
-adb install -r <path> (install app from phone path)  
+adb install -r <path> (install app from phone path)
+adb install-multiple <apk> config.* (install from xapk)
 adb uninstall <name> (remove the app)
 ```
 

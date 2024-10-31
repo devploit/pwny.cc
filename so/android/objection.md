@@ -9,7 +9,7 @@ description: >-
 
 ## Installation
 
-```
+```bash
 pip3 install objection
 ```
 
@@ -19,11 +19,21 @@ Make a **regular ADB conection** and **start** the **frida** server in the devic
 
 If you are using a **rooted device** it is needed to select the application that you want to test inside the _**--gadget**_ option. in this case:
 
-```
+```bash
 objection --gadget com.sensepost.ipewpew explore
 ```
 
 ## Commands
+
+### Patch apk
+
+Before you can use any of the objection commands on an Android application, the application's APK itself needs to be patched and code signed to load the frida-gadget.so on start (**or setup frida-server**).
+
+{% code overflow="wrap" %}
+```bash
+objection patchapk -s testAPK.apk
+```
+{% endcode %}
 
 ### Objection Basics
 

@@ -6,6 +6,10 @@
 
 Ghidra / IDA Pro / radare2 and GL my friend!
 
+### Frida method
+
+Using frida snippet like [#jadx-and-frida](frida.md#jadx-and-frida "mention").
+
 ### Executing the functions from JNI in an Android app
 
 Create a New Project on Android Studio

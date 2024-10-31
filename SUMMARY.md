@@ -22,6 +22,7 @@
   * [apktool](so/android/apktool.md)
   * [burp suite](so/android/burp-suite.md)
   * [dns spoofing](so/android/dns-spoofing.md)
+  * [frida](so/android/frida.md)
   * [jadx](so/android/jadx.md)
   * [jni](so/android/jni.md)
   * [objection](so/android/objection.md)
