@@ -1,4 +1,4 @@
-# jni
+# JNI
 
 ## JNI Deobfuscation
 
@@ -116,5 +116,7 @@ Set the homeText "id" in activity\_main (`res/layout/activity_main.xml`)
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 {% endcode %}
+
+## References
 
 {% embed url="https://developer.android.com/training/articles/perf-jni?hl=es-419" %}

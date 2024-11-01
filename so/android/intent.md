@@ -359,6 +359,8 @@ public class Utils {
 }
 ```
 
+## References
+
 {% embed url="https://developer.android.com/guide/components/intents-filters?hl=es-419" %}
 
 {% embed url="https://app.hextree.io/" %}

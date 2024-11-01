@@ -157,6 +157,8 @@ Java.perform(() => {
 
 **It's so much faster than manually reversing!**
 
+## References
+
 {% embed url="https://app.hextree.io/" %}
 
 {% embed url="https://frida.re/docs/android/" %}

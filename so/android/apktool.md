@@ -88,4 +88,6 @@ Create a permissive file on `res/xml/network_security_config.xml`
 
 Rebuild the apk as explained in [#how-to-rebuild-a-modified-apk](apktool.md#how-to-rebuild-a-modified-apk "mention").
 
+## References
+
 {% embed url="https://github.com/iBotPeaches/Apktool" %}

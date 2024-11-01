@@ -46,6 +46,8 @@ private void sendHtmlIntent() {
     }
 ```
 
+## References
+
 {% embed url="https://developer.android.com/reference/android/webkit/WebView" %}
 
 {% embed url="https://app.hextree.io/" %}

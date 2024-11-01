@@ -15,4 +15,6 @@ description: Dex to Java decompiler.
 </strong><strong>Open app1 folder and then from the extension open the app2 folder
 </strong></code></pre>
 
+## References
+
 {% embed url="https://github.com/skylot/jadx" %}
