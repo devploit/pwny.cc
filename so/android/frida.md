@@ -53,7 +53,7 @@ frida-trace -U -I 'native-lib' -j 'com.testapp.*!*' TestApp
 
 ## Tracing
 
-### Activies
+### Activities
 
 ```javascript
 Java.perform(() => {

@@ -33,7 +33,7 @@ Change DNS configuration from settings apps (but unfortunately some apps like Ch
 Using [rethinkdns app](https://github.com/celzero/rethink-app) we can control this:
 
 1. Change DNS settings to "Other DNS"
-2. Selext "Proxy DNS" (DNS 53)
+2. Select "Proxy DNS" (DNS 53)
 3. Create a new entry pointing ot your local DNS server host
 4. Launch the VPN
 
