@@ -126,6 +126,18 @@ wait # Launched in parallel - wait for completion here
 echo "System certificate injected"
 ```
 
+## IPtables to route traffic through Burp
+
+Example commands:
+
+```bash
+adb shell "iptables -t nat -F"
+adb shell "iptables -t nat -A OUTPUT -p tcp --dport 80 -j DNAT --to-destination 192.168.0.26:8080"
+adb shell "iptables -t nat -A OUTPUT -p tcp --dport 443 -j DNAT --to-destination 192.168.0.26:8080"
+adb shell "iptables -t nat -A POSTROUTING -p tcp --dport 443 -j MASQUERADE"
+adb shell "iptables -t nat -A POSTROUTING -p tcp --dport 80 -j MASQUERADE"
+```
+
 ## References
 
 {% embed url="https://portswigger.net/burp" %}
