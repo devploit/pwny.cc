@@ -51,3 +51,5 @@ private void sendHtmlIntent() {
 {% embed url="https://developer.android.com/reference/android/webkit/WebView" %}
 
 {% embed url="https://app.hextree.io/" %}
+
+{% embed url="https://blog.oversecured.com/Android-security-checklist-webview/#typical-example-of-the-vulnerability" %}

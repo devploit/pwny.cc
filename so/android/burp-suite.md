@@ -43,6 +43,11 @@ description: >-
 6. Click Next. The dialog indicates that the certificate was successfully exported.
 7. Add the certificate to your device's trust store. The process for doing this varies depending on the device or emulator you're using, as well your Android OS version. You can find detailed, third-party instructions on how to do this online.
 
+```bash
+# Convert to pem format
+openssl x509 -inform der -in cert.der -out cert.pem
+```
+
 ### Install Burp's CA certificate as system
 
 1. Install the proxy certificate as a regular user certificate.

