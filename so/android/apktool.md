@@ -65,7 +65,7 @@ keytool -genkey -v -keystore research.keystore -alias research_key -keyalg RSA -
     # Option 2: apksigner (v2, v3, v4 scheme) - RECOMMENDED
     apksigner sign --ks research.keystore --ks-key-alias research_key dist/apk_build.apk
 
-# Optional: Zipalign to avoid problems
+# Optional: Zipalign to optimize APK (may cause problems with modern schemes)
 /path/to/Android/sdk/build-tools/VERSION/zipalign -v -p 4 input.apk output.apk
 </code></pre>
 
