@@ -59,7 +59,12 @@ apktool b
 keytool -genkey -v -keystore research.keystore -alias research_key -keyalg RSA -keysize 2048 -validity 10000
 
 # Sign the apk with the key
-jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore research.keystore dist/apk_build.apk research_key
+<strong>    # Option 1: jarsigner (v1 scheme)
+</strong>    jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore research.keystore dist/apk_build.apk research_key
+
+    # Option 2: apksigner (v2, v3, v4 scheme) - RECOMMENDED
+    apksigner sign --ks research.keystore --ks-key-alias research_key dist/apk_build.apk
+
 
 # Optional: Zipalign to avoid problems
 /path/to/Android/sdk/build-tools/VERSION/zipalign -v -p 4 input.apk output.apk
